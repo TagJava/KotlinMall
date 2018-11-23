@@ -66,9 +66,9 @@ dependencies {
     api "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
-    /*api "com.trello.rxlifecycle3:rxlifecycle-components:$rx_lifecycle_version"
+    api "com.trello.rxlifecycle3:rxlifecycle-components:$rx_lifecycle_version"
     // If you want to use Kotlin syntax
-    api "com.trello.rxlifecycle3:rxlifecycle-kotlin:$rx_lifecycle_version"*/
+//    api "com.trello.rxlifecycle3:rxlifecycle-kotlin:$rx_lifecycle_version"
 
 
 }
