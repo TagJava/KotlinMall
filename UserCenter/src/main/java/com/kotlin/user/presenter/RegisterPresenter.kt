@@ -26,9 +26,11 @@ open class RegisterPresenter @Inject constructor(): BasePresenter<RegisterView>(
         userService.register(mobile, verifyCode, pwd)
                 .execute(object : BaseSubscriber<Boolean>() {
                     override fun onNext(t: Boolean) {
-                        mView.onRegisterResult(t)
+                        if(t){
+                            mView.onRegisterResult("注册成功")
+                        }
                     }
-                })
+                },lifecycleProvider)
     }
 
     fun login(mobile: String, verifyCode: String, pwd: String) {
@@ -38,8 +40,10 @@ open class RegisterPresenter @Inject constructor(): BasePresenter<RegisterView>(
         userService.register(mobile, verifyCode, pwd)
                 .execute(object : BaseSubscriber<Boolean>() {
                     override fun onNext(t: Boolean) {
-                        mView.onRegisterResult(t)
+                        if(t){
+                            mView.onRegisterResult("注册成功")
+                        }
                     }
-                })
+                },lifecycleProvider)
     }
 }

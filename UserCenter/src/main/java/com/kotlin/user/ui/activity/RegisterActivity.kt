@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
 
 class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView{
-    override fun onRegisterResult(result: Boolean) {
-        toast("注册成功")
+    override fun onRegisterResult(result: String) {
+        toast(result)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
