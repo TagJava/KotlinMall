@@ -8,6 +8,12 @@
     tools:context=".ui.activity.RegisterActivity">
 
 
+    <com.kotlin.base.widgets.HeaderBar
+        style="@style/MatchAuto"
+        app:isShowBack="false"
+        app:titleText="注册"
+        app:rightText="登录"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
