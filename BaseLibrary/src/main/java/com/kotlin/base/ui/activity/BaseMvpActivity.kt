@@ -5,6 +5,7 @@ import com.kotlin.base.common.BaseApplication
 import com.kotlin.base.injection.component.ActivityComponent
 import com.kotlin.base.injection.component.DaggerActivityComponent
 import com.kotlin.base.injection.module.ActivityModule
+import com.kotlin.base.injection.module.LifecycleProviderModule
 import com.kotlin.base.presenter.view.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
 import javax.inject.Inject
@@ -34,6 +35,7 @@ open class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
 
     private fun initActivityInjection() {
         activityComponent = DaggerActivityComponent.builder().appComponent((application
-        as BaseApplication).appComponent).activityModule(ActivityModule(this)).build()
+        as BaseApplication).appComponent).activityModule(ActivityModule(this))
+                .lifecycleProviderModule(LifecycleProviderModule(this)).build()
     }
 }
