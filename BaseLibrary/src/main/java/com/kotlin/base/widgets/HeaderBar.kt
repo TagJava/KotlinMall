@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.FrameLayout
 import com.kotlin.base.R
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
-import org.jetbrains.anko.tvView
 
 class HeaderBar @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -38,6 +37,7 @@ class HeaderBar @JvmOverloads constructor(
 
         rightText?.let{
             mRightTv.text = it
+            mRightTv.visibility = View.VISIBLE
         }
     }
 

@@ -9,7 +9,7 @@
 
 
     <com.kotlin.base.widgets.HeaderBar
-        style="@style/MatchAuto"
+        style="@style/MatchWrap"
         app:isShowBack="false"
         app:titleText="注册"
         app:rightText="登录"/>
