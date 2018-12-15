@@ -12,6 +12,7 @@ import com.trello.rxlifecycle.LifecycleProvider
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import com.kotlin.base.rx.BaseFunc
 
 
 fun <T> Observable<T>.execute(subscriber: BaseSubscriber<T>,
@@ -26,9 +27,9 @@ fun <T> Observable<T>.execute(subscriber: BaseSubscriber<T>,
 /*
     扩展数据转换
  */
-//fun <T> Observable<BaseResp<T>>.convert():Observable<T>{
-//    return this.flatMap(BaseFunc())
-//}
+fun <T> Observable<BaseResp<T>>.convert():Observable<T>{
+    return this.flatMap(BaseFunc<T>())
+}
 
 /*
     扩展Boolean类型数据转换
