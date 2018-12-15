@@ -9,10 +9,12 @@ import com.kotlin.base.injection.module.LifecycleProviderModule
 import com.kotlin.base.presenter.view.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
 import com.kotlin.base.widgets.ProgressLoading
+import org.jetbrains.anko.bundleOf
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 
-open class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
+abstract open  class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
+
     override fun showLoading() {
         mLoadingDialog.showLoading()
     }
@@ -35,6 +37,7 @@ open class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initActivityInjection()
+        injectComponent()
         mLoadingDialog = ProgressLoading.create(this)
     }
 
@@ -43,4 +46,9 @@ open class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
         as BaseApplication).appComponent).activityModule(ActivityModule(this))
                 .lifecycleProviderModule(LifecycleProviderModule(this)).build()
     }
+
+    /*
+        Dagger注册
+     */
+    protected abstract fun injectComponent()
 }
