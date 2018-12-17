@@ -1,5 +1,6 @@
 package com.kotlin.user.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.kotlin.base.common.AppManager
@@ -12,9 +13,7 @@ import com.kotlin.user.injection.component.DaggerUserComponent
 import com.kotlin.user.injection.model.UserModule
 import com.kotlin.user.presenter.view.LoginPresenter
 import com.kotlin.user.presenter.view.LoginView
-import com.kotlin.user.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
 
 /**
@@ -41,6 +40,8 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         mLoginBtn.enable(mLoginMobileEt, { isBtnEnable() })
         mLoginBtn.enable(mLoginPwdEt, { isBtnEnable() })
         mLoginBtn.onClick (this)
+
+        mHeaderLoginBar.getRightView().onClick(this)
     }
 
     /*
@@ -80,6 +81,11 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
      */
     override fun onClick(view: View) {
         when (view.id) {
+            R.id.mRightTv -> {
+                val intent = Intent()
+                intent.setClass(this,RegisterActivity::class.java)
+                startActivity(intent)
+            }
             R.id.mLoginBtn -> {
                 mPresenter.login(mLoginMobileEt.text.toString(), mLoginPwdEt.text.toString(), "")
             }

@@ -4,7 +4,7 @@
     style="@style/MatchMatch.Vertical.Common">
 
     <com.kotlin.base.widgets.HeaderBar
-        android:id="@+id/mHeaderBar"
+        android:id="@+id/mHeaderLoginBar"
         style="@style/MatchWrap"
         app:rightText="注册"
         app:titleText="登录" />
