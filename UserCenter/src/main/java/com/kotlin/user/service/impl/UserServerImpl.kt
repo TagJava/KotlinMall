@@ -12,6 +12,7 @@ import javax.inject.Inject
 class UserServerImpl @Inject constructor() : UserServer {
 
 
+
     @Inject
     lateinit var repository: UserRepository
 
@@ -32,5 +33,21 @@ class UserServerImpl @Inject constructor() : UserServer {
         val repository = UserRepository()
 
         return repository.login(mobile, pwd, pushId).convert()
+    }
+
+    /**
+     * 重置密码
+     */
+    override fun resetPwd(mobile: String, pwd: String): Observable<Boolean> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return repository.resetPwd(mobile,pwd).convertBoolean()
+    }
+
+    /**
+     * 忘记
+     */
+    override fun forgetPwd(mobile: String, verifyCode: String): Observable<Boolean> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return repository.forgetPwd(mobile,verifyCode).convertBoolean()
     }
 }
