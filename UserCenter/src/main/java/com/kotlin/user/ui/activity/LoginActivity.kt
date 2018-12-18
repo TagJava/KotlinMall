@@ -42,6 +42,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         mLoginBtn.onClick (this)
 
         mHeaderLoginBar.getRightView().onClick(this)
+        mForgetPwdTv.onClick(this)
     }
 
     /*
@@ -88,6 +89,11 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
             }
             R.id.mLoginBtn -> {
                 mPresenter.login(mLoginMobileEt.text.toString(), mLoginPwdEt.text.toString(), "")
+            }
+            R.id.mForgetPwdTv ->{
+                val intent = Intent()
+                intent.setClass(this,ForgetPwdActivity::class.java)
+                startActivity(intent)
             }
         }
     }
