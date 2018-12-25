@@ -6,6 +6,7 @@ import com.kotlin.user.injection.model.UserModule
 import com.kotlin.user.ui.activity.ForgetPwdActivity
 import com.kotlin.user.ui.activity.LoginActivity
 import com.kotlin.user.ui.activity.RegisterActivity
+import com.kotlin.user.ui.activity.UserInfoActivity
 import dagger.Component
 
 @PerComponentScope
@@ -15,4 +16,5 @@ interface UserComponent{
     fun inject(activity: RegisterActivity)
     fun inject(activity: LoginActivity)
     fun inject(forgetPwdActivity: ForgetPwdActivity)
+    fun inject(userInfoActivity: UserInfoActivity)
 }

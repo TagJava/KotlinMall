@@ -101,6 +101,10 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     override fun onLoginResult(result: UserInfo) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         toast("登录成功")
+
+        val intent = Intent()
+        intent.setClass(this,UserInfoActivity::class.java)
+        startActivity(intent)
     }
 
 }
