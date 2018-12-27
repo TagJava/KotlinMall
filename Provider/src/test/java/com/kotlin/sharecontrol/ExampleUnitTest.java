@@ -1,4 +1,4 @@
-package com.kotlin.provider;
+package com.kotlin.sharecontrol;
 
 import org.junit.Test;
 

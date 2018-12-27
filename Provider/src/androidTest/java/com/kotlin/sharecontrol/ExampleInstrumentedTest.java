@@ -1,4 +1,4 @@
-package com.kotlin.provider;
+package com.kotlin.sharecontrol;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
