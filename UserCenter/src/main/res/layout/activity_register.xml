@@ -24,7 +24,7 @@
                 android:drawableLeft="@drawable/icon_phone"
                 android:drawablePadding="@dimen/common_padding_small"
                 android:hint="请输入手机号码"
-                android:inputType="phone"
+                android:in'putType="phone"
                 android:paddingLeft="@dimen/common_padding_small" />
 
             <View style="@style/DividerFixedWidth.MarginTopBottom" />
