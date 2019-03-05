@@ -79,6 +79,7 @@ class ForgetPwdActivity : BaseMvpActivity<ForgetPwdPresenter>(), ForgetPwdView, 
 
     override fun onForgetPwdResult(result: String) {
         toast(result)
+//        startActivity()
     }
 
 

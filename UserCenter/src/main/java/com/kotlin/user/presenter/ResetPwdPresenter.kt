@@ -18,7 +18,7 @@ open class ResetPwdPresenter @Inject constructor(): BasePresenter<ResetPwdView>(
     @Inject
     lateinit var userService:UserServer
 
-    fun forgetPwd(mobile: String, verifyCode: String) {
+    fun resetPwd(mobile: String, pwd: String) {
         /**
          * 业务逻辑
          */
@@ -26,11 +26,11 @@ open class ResetPwdPresenter @Inject constructor(): BasePresenter<ResetPwdView>(
             return
         }
         mView.showLoading()
-        userService.forgetPwd(mobile, verifyCode)
+        userService.forgetPwd(mobile, pwd)
                 .execute(object : BaseSubscriber<Boolean>(mView) {
                     override fun onNext(t: Boolean) {
                         if(t){
-                            mView.resetPwdResult("验证成功")
+                            mView.resetPwdResult("重置密码成功")
                         }
                     }
                 },lifecycleProvider)

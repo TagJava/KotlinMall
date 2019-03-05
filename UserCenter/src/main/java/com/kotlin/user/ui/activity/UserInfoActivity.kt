@@ -2,6 +2,8 @@ package com.kotlin.user.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.bigkoo.alertview.AlertView
+import com.bigkoo.alertview.OnItemClickListener
 import com.kotlin.base.common.AppManager
 import com.kotlin.base.ext.enable
 import com.kotlin.base.ext.onClick
@@ -22,6 +24,16 @@ import org.jetbrains.anko.toast
  */
 class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, View.OnClickListener {
 
+    private var mLocalFileUrl:String? = null
+    private var mRemoteFileUrl:String? = null
+
+    private var mUserIcon:String? = null
+    private var mUserName:String? = null
+    private var mUserMobile:String? = null
+    private var mUserGender:String? = null
+    private var mUserSign:String? = null;
+
+
     fun isBtnEnable(): Boolean {
         return mMobileEt.text.isNullOrEmpty().not() &&
                 mVerifyCodeEt.text.isNullOrEmpty().not()
@@ -40,6 +52,18 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, Vie
     fun initView() {
 
 
+    }
+
+    private fun showAlertView(){
+        AlertView("选择图片","","取消",null, arrayOf("拍照","相册"),this,
+                AlertView.Style.ActionSheet,object : OnItemClickListener{
+            override fun onItemClick(o: Any?, position: Int) {
+                when(position){
+                    0 -> toast("拍照")
+                    1 -> toast("相册")
+                }
+            }
+        }).show()
     }
 
     /*

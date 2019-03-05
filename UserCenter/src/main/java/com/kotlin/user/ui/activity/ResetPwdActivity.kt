@@ -14,6 +14,9 @@ import com.kotlin.user.presenter.view.ForgetPwdView
 import com.kotlin.user.presenter.view.ResetPwdPresenter
 import com.kotlin.user.presenter.view.ResetPwdView
 import kotlinx.android.synthetic.main.activity_forget_pwd.*
+import org.jetbrains.anko.clearTop
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.toast
 
 /**
@@ -49,7 +52,7 @@ class ResetPwdActivity : BaseMvpActivity<ResetPwdPresenter>(), ResetPwdView, Vie
     }
 
     override fun resetPwdResult(result: String) {
-
+        startActivity(intentFor<LoginActivity>().singleTop().clearTop())
     }
 
 
